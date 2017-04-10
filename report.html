@@ -11779,7 +11779,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11797,7 +11797,7 @@ div#notebook {
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;housing.csv&#39;</span><span class="p">)</span>
 <span class="n">prices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MEDV&#39;</span><span class="p">]</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;MEDV&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    
+
 <span class="c1"># Success</span>
 <span class="k">print</span> <span class="s2">&quot;Boston housing dataset has {} data points with {} variables each.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
@@ -11851,7 +11851,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
@@ -11925,7 +11925,8 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> A high'RM' would probably increase the value of 'MEDV', because it usually means that a house is bigger. However 'LSTAT' and 'PTRATIO' would bring the value of 'MEDV' down, i believe that a place with "high class" homeowners and a place with more companies installations would be evaluated higher.</p>
+<p><strong>Answer:</strong> A high'RM' would probably increase the value of 'MEDV', because it usually means that a house is bigger. However 'LSTAT' and 'PTRATIO' would bring the value of 'MEDV' down, i believe that a place with "high class" homeowners and a place with more companies installations would be evaluated higher.
+After plotting the graphs, 'LSAT' mean is between 10 to 15 and 'RM'mean it's around 6.</p>
 
 </div>
 </div>
@@ -12058,6 +12059,8 @@ Standard deviation of prices: $165,171.13
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> The R^2 is 0.923 which i consider to be a good score(close to 1),so probably it would capture the variation pretty well.</p>
+<p>More data points will make this model more realiable, since the features don't increase as well.
+We might face Bias-Variance tradeoff.</p>
 
 </div>
 </div>
@@ -12132,7 +12135,9 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> The benefit for splitting it's that we can evaluate the learning algorithm.With limited size of dataset and a random state, 2 dataset can be created and used to train and test.</p>
+<p><strong>Answer: </strong> The benefit for splitting it's that we can evaluate the learning algorithm.With limited size of dataset and a random state, 2 dataset can be created and used to train and test.
+If we don't put our model to the test, we might face overfitting or underfiting, the main idea is that our model can generalize our data, and if new data is inserted, our model can predict a correct or reasonable output.</p>
+<p>If the training dataset is used to score our model, it's not realiable since it was our base to learn.(100% training dataset).</p>
 
 </div>
 </div>
@@ -13207,7 +13212,8 @@ RERERHSMDIAiIiIiIqJjZAAUEREREREdIwOgiIiIiIjoGP8AT0J5zO8SwdgAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Graph(max_depth = 3), The training curve tends to 0.8 score as more training points are added and testing curve increases tending to 0.8 like training curve.Most likely more training points wouldn't benefit the model.</p>
+<p><strong>Answer: </strong> Graph(max_depth = 3), The training curve tends to 0.8 score as more training points are added(training score decreases) and testing curve increases tending to 0.8 like training curve.Most likely more training points wouldn't benefit the model.(More data usually means more time to process).
+One model that is almost global optimal is not necessary, so with fewer datas, we can still have a good prediction model.</p>
 
 </div>
 </div>
@@ -13668,7 +13674,7 @@ Sc8YY0zQsKRnjDEmaFjSM8YYEzT+H2/xbkPePmqcAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> The model suffer from high bias with a maximum depth of 1, and it suffer from variance with a maximum depth of 10.When i analyse the distance between training score and validation score, with depth of 1 is really close(high bias behavior) and with depth of 10 the score is more apart from each other(high variance behavior)</p>
+<p><strong>Answer: </strong> The model suffer from high bias with a maximum depth of 1, and it suffer from variance with a maximum depth of 10.When i analyse the distance between training score and validation score, with depth of 1 is really close(low variance behavior) and with depth of 10 the score has a larger gap from each other(high variance behavior).</p>
 
 </div>
 </div>
@@ -13689,6 +13695,7 @@ Sc8YY0zQsKRnjDEmaFjSM8YYEzT+H2/xbkPePmqcAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> I think maximum depth 4 is the one that best generalizes the unseen data, the validation score is higher at that point.</p>
+<p>Correlation between error and accuracy are the same,but one is the opposite of the other.(Linear)</p>
 
 </div>
 </div>
@@ -13719,7 +13726,8 @@ Sc8YY0zQsKRnjDEmaFjSM8YYEzT+H2/xbkPePmqcAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Grid Search Technique is a split-train-test algorithm, which through brute force tries to optimze the C and Gamma parameters.</p>
+<p><strong>Answer: </strong> Grid Search Technique is an optimize technique, which is an exhaustive algorithm to optimize the hyperparameters.
+The GridSearchCV select parameters that maximize the score function, for that all param_grid are tested and the best combination is stored.</p>
 
 </div>
 </div>
@@ -13740,7 +13748,14 @@ Sc8YY0zQsKRnjDEmaFjSM8YYEzT+H2/xbkPePmqcAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> K-fold cross validation is a technique for training-testing to avoid overfitting, a dataset is split k times in folders, each one store a smaller dataset.Cross-validation has the benefit to fit the range of values as efficiently as a grid search.</p>
+<p><strong>Answer: </strong> K-fold cross validation is a technique for training-testing to avoid overfitting, a dataset is split k times in folders, each one store a smaller dataset.
+Cross-validation has the benefit to fit the range of values as efficiently as a grid search.
+In k-fold cross validation, the data is randomized between the folders, one of them is stored to be the test folder, so the training will be perfomed with k-1 folders.That is repeated k times, each time with a different test folder.
+With this technique the variance reduces when parameter k increases.
+The error rates are stored after k-fold cross validation is done, and the average is calculated based on parameter k.
+If i remember right, after the model is trained, it's run another test with the whole dataset.</p>
+<p>One benefit from k-fold cross validation is that the test evaluation is made many more times than only one testing set and one training set.
+With all that said, k-fold cross validation avoid overfitting through series of training and testing.</p>
 
 </div>
 </div>
@@ -13777,7 +13792,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
@@ -13794,7 +13809,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
     <span class="n">cv_sets</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_iter</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># TODO: Create a decision tree regressor object</span>
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
+    <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 
     <span class="c1"># TODO: Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)}</span>
@@ -13966,9 +13981,12 @@ Predicted selling price for Client 3&#39;s home: $938,053.85
 Predicted selling price for Client 1's home: $406,933.33
 Predicted selling price for Client 2's home: $232,200.00
 Predicted selling price for Client 3's home: $938,053.85</p>
-<p>The selling value increase with more total number of rooms
-The poverty level increase with the decrease of selling price
+<p>The selling value increase with more total number of rooms.
+The poverty level increase with the decrease of selling price.
 The more student-teacher ratio, the less value the house have.</p>
+<p>Client 1 have 5 rooms in his/her house, 17 porcentage of neighborhood poverty level and 15 to 1 student-teach ratio.
+When i compare to client 2, that has fewer rooms(4 rooms), more poverty level(32 porcentage) and 22 to 1 student ratio, it's expected a lower selling price, the difference is around 57 porcentage.Client 2 is below the mean $454,342.94.
+And Client 3 has 8 rooms, 3 porcentage of neighborhood poverty level and 12 to 1 student-teach ratio, the predicted selling price is 203 porcentage more than Client 1 house price.</p>
 
 </div>
 </div>
@@ -14047,6 +14065,7 @@ Range in prices: $69,044.61
 To have many features is a problem, because you might have to deal with not important features, but around 10-15 features would seem more reasonable.
 I've liked this model, however the range in price vary $69,044.61. That's a 16.5 porcentage difference.
 Most likely not, a data collected in Boston won't work in a rural city. It's a different market dynamic.</p>
+<p>The model shouldn't be used in real-world setting, because it's obsolete and have low quantity of features.</p>
 
 </div>
 </div>
